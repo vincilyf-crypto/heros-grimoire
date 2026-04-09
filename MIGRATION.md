@@ -37,32 +37,23 @@ App will be running at http://localhost:3000
 
 ## Step 4 — Restore Claude Code Skills
 
-Create this folder and file manually:
-
-**Folder path:**
+Open Claude Code and type:
 ```
-C:\Users\<YourName>\.claude\skills\frontend-design\
+install the frontend-design skill from anthropics/claude-code
 ```
-
-**Create file** `SKILL.md` inside that folder with the content from:
-https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md
-
-Or run this in PowerShell:
-```
-mkdir "$env:USERPROFILE\.claude\skills\frontend-design"
-curl -s -H "Authorization: token <YOUR_GITHUB_TOKEN>" "https://api.github.com/repos/anthropics/claude-code/contents/plugins/frontend-design/skills/frontend-design/SKILL.md" | python -c "import sys,json,base64; d=json.load(sys.stdin); print(base64.b64decode(d['content']).decode())" > "$env:USERPROFILE\.claude\skills\frontend-design\SKILL.md"
-```
+Claude will handle it automatically.
 
 ---
 
 ## Step 5 — Connect GitHub Account
 
 1. Go to: https://github.com/settings/tokens/new
-2. Check scopes: `repo` + `workflow` + `read:org`
-3. Generate token and run:
+2. Check scopes: `repo` + `workflow`
+3. Generate token, then open PowerShell and run:
 ```
-echo YOUR_TOKEN | gh auth login --with-token
+gh auth login --with-token
 ```
+Paste your token when prompted.
 
 ---
 
